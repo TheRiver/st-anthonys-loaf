@@ -1,21 +1,27 @@
 <template>
-    <div class="email-line">
-        <div class="authors">
-            {{ authors }}
-        </div>
-        <div>
-            {{ subject }}
-        </div>
-        <div class="content">
-            {{content }}
+    <div v-if="!expanded"
+         class="email-line"
+         @click="expand()">
+        <div class="centered">
+            <div class="authors">
+                {{ authors }}
+            </div>
+            <div>
+                {{ subject }}
+            </div>
+            <div class="content" v-html="content">
+            </div>
         </div>
     </div>
+    <EmailExpanded v-else :emails="emails"/>
 </template>
 
 
 <script setup>
 
-import {computed} from "vue";
+import {computed, ref, watch} from "vue";
+import EmailExpanded from "./EmailExpanded.vue";
+import {marked} from "marked";
 
 const props = defineProps({
     email: {
@@ -23,8 +29,24 @@ const props = defineProps({
     }
 })
 
+const emails = computed(() => {
+    let email = props.email;
+    if (!Array.isArray(email)) {
+        email = [email];
+    }
+
+    return email;
+})
+
+const emit = defineEmits(["expand"]);
+
+const expanded = ref(!!props.email.expanded);
+
+watch(() => props.email.expanded, () => {
+    expanded.value = !!props.email.expanded
+}, {deep: true})
+
 const authors = computed(() => {
-    console.log("---");
     let email = props.email;
     if (!Array.isArray(email)) {
         email = [email];
@@ -35,7 +57,6 @@ const authors = computed(() => {
         let to = Array.isArray(email.to) ? email.to : [email.to];
         to.forEach(name => names.push(name));
     })
-    console.log("names: ", names);
     names = new Set(names.map(name => name.split("<").at(0).split(" ").at(0)));
     return [...names].join(", ")
 })
@@ -55,8 +76,15 @@ const content = computed(() => {
         emails = [emails];
     }
 
-    return emails.at(-1).content;
+    return marked.parse(emails.at(-1).content);
 })
+
+
+
+function expand() {
+    emit("expand", props.email);
+}
+
 
 </script>
 
@@ -68,6 +96,9 @@ const content = computed(() => {
     padding: 0.5rem 1rem;
     line-height: 1.05rem;
 
+    display: grid;
+    align-items: center;
+
     --colour: black;
     color: var(--colour);
 
@@ -77,15 +108,22 @@ const content = computed(() => {
 
     cursor: pointer;
 
-    &:hover {
-        background: color-mix(in srgb, var(--background), rgb(0 0 200) 10%);
-        transition-duration: 200ms;
+    .centered {
+        margin-block: auto;
+    }
+
+    @media (any-hover: hover) {
+        &:hover {
+            background: color-mix(in srgb, var(--background), rgb(0 0 200) 10%);
+            transition-duration: 200ms;
+        }
     }
 }
 
-.email-line + .email-line {
-    border-top: thin solid var(--border);
 
+
+.email-line:has(+ .email-expanded, + .email-line)  {
+    border-bottom: thin solid var(--border);
 }
 
 .content {

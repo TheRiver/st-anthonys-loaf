@@ -5,7 +5,7 @@
         </header>
 
         <div class="email-grid">
-            <EmailLine :email="email" v-for="email in emails"/>
+            <EmailLine :email="email" v-for="email in emails" @expand="onExpand"/>
         </div>
 
         <footer>
@@ -18,8 +18,30 @@
 
 import {EMAILS} from "./emails-store.js";
 import EmailLine from "./components/EmailLine.vue";
+import {onBeforeUnmount, onMounted} from "vue";
 
 const emails = EMAILS;
+
+function onExpand(email) {
+    emails.value.forEach(e => {
+        if (e.id !== email.id) {
+            e.expanded = false;
+        }
+    })
+    email.expanded = true;
+}
+
+function escapeHandler() {
+    emails.value.forEach(e => e.expanded = false);
+}
+
+onMounted(() => {
+    document.addEventListener('keydown', escapeHandler, true);
+})
+
+onBeforeUnmount(() => {
+    document.removeEventListener('keydown', escapeHandler, true);
+})
 
 </script>
 
@@ -36,7 +58,7 @@ const emails = EMAILS;
 .email-grid {
     display: grid;
     grid-template-columns: 1fr;
-    grid-auto-rows: minmax(50px, auto);
+    grid-auto-rows: minmax(80px, auto);
 
     margin-bottom: auto;
     max-height: 100%;
