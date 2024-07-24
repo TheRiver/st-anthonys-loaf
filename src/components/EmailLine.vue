@@ -55,7 +55,7 @@ const authors = computed(() => {
     let names = email.map(email => email.from);
     email.forEach(email => {
         let to = Array.isArray(email.to) ? email.to : [email.to];
-        to.forEach(name => names.push(name));
+        to.filter(name => !!name).forEach(name => names.push(name));
     })
     names = new Set(names.map(name => name.split("<").at(0).split(" ").at(0)));
     return [...names].join(", ")

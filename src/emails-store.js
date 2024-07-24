@@ -114,6 +114,29 @@ Personal Assistant to Mr. Francis Jung
         }
     ],
     //endregion
+
+    {
+        from: "St Anthony's Loaf Soup Kitchen <anthony@theloaf.com>",
+        subject: "The 2023 St Anthony's Loaf Fund Raiser",
+        content: `
+Dear subscriber,
+
+We would like to invite you to this year's fund raising event for 
+St. Anthony's Loaf.  
+
+This year the event will be held at the South Bayou Wine Estate. Tickets start at $50 and includes
+cheese and a complementary glass of champaign. There will be a cash bar, as well as performances by 
+*the New Orleans Jazz Cats*. 
+
+If you would like to come in as a VIP guest, tickets are $250, include dinner and drinks, with a chance
+to meet the *Jazz Cats*, and to mingle with our other high value donors. 
+
+The event will be held on Saturday the $DATE, and tickets can be purchased [here](https://not.a.real.link).  
+
+Kind regards, <br>
+Your friends at the Loaf
+        `
+    }
 ];
 
 let id = 1;
