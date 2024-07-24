@@ -1,3 +1,12 @@
+/**
+ * Copyright Constance Neeser 2024.
+ *
+ * This file licensed under the
+ * Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International license.
+ *
+ * Text of the license available: https://creativecommons.org/licenses/by-nc-sa/4.0/
+ */
+
 import {ref} from "vue";
 
 const internal = [
