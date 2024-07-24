@@ -10,7 +10,7 @@
         </div>
 
         <footer>
-            Copyright <em>The Email Company</em> 2023
+            Copyright <a href="https://github.com/TheRiver/st-anthonys-loaf" target="_blank" title="See the source code">The Email Company</a> 2023
         </footer>
     </div>
 </template>
@@ -95,6 +95,12 @@ header {
 
     h1 + * {
         grid-column: 5;
+    }
+}
+
+footer {
+    > a:not(:hover) {
+        color: inherit;
     }
 }
 
