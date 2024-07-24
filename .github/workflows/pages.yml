@@ -12,11 +12,6 @@ permissions:
   pages: write
   id-token: write
 
-# Use the correct directory
-defaults:
-  run:
-    working-directory: 11ty
-
 jobs:
   build:
     runs-on: ubuntu-latest
