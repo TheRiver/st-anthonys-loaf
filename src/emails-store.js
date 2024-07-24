@@ -2,6 +2,17 @@ import {ref} from "vue";
 
 const internal = [
     {
+        from: "cbrown@theloaf.com",
+        to: "XYZ",
+        subject: "Will you?",
+        content: `
+Dear Dr. XXX
+
+Candice Brown <br>
+*“to build a better world, you must first dream of a better world.”*
+        `
+    },
+    {
         from: "First Person <person@email.com>",
         to: "Second <second@place.com>",
         subject: "Hello",

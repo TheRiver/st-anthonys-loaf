@@ -13,7 +13,7 @@
             </div>
         </div>
     </div>
-    <EmailExpanded v-else :emails="emails"/>
+    <EmailExpanded v-else :emails="emails" @contract="contract()"/>
 </template>
 
 
@@ -38,7 +38,7 @@ const emails = computed(() => {
     return email;
 })
 
-const emit = defineEmits(["expand"]);
+const emit = defineEmits(["expand", "contract"]);
 
 const expanded = ref(!!props.email.expanded);
 
@@ -85,6 +85,9 @@ function expand() {
     emit("expand", props.email);
 }
 
+function contract() {
+    emit("contract", props.email);
+}
 
 </script>
 

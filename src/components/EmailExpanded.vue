@@ -1,6 +1,6 @@
 <template>
     <div class="email-expanded">
-        <header>
+        <header @click="contract()">
             {{ subject }}
         </header>
         <Email v-for="email in emails" :email="email"/>
@@ -20,9 +20,15 @@ const props = defineProps({
     }
 })
 
+const emit = defineEmits(["contract"]);
+
 const subject = computed(() => {
     return props.emails[0]?.subject ?? "Unknown subject";
 })
+
+function contract() {
+    emit("contract", props.emails);
+}
 
 </script>
 
@@ -39,6 +45,8 @@ const subject = computed(() => {
         background: gainsboro;
         padding-block: 2px;
         padding-left: 1rem;
+
+        cursor: pointer;
     }
 
 

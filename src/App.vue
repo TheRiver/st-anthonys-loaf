@@ -1,15 +1,16 @@
 <template>
     <div class="app">
         <header>
-            Only mail
+            <h1>Only mail</h1>
+            <span>cbrown@theloaf.com</span>
         </header>
 
         <div class="email-grid">
-            <EmailLine :email="email" v-for="email in emails" @expand="onExpand"/>
+            <EmailLine :email="email" v-for="email in emails" @expand="onExpand" @contract="email.expanded = false"/>
         </div>
 
         <footer>
-            Copyright The Bestest Dev &copy; {{ new Date().getFullYear() }}
+            Copyright <em>The Email Company</em> 2023
         </footer>
     </div>
 </template>
@@ -53,6 +54,12 @@ onBeforeUnmount(() => {
     display: grid;
     grid-template-columns: 1fr;
     grid-template-rows: auto 1fr auto;
+
+    @media (width > 800px){
+        max-width: 800px;
+        margin-inline: auto;
+        border-inline: thin solid var(--border);
+    }
 }
 
 .email-grid {
@@ -72,11 +79,23 @@ onBeforeUnmount(() => {
     background: gainsboro;
     height: 2rem;
     line-height: 2rem;
+}
 
+header {
     display: grid;
+    grid-template-columns: repeat(5, 1fr);
 
-    grid-template-columns: 1fr;
-    grid-template-rows: 100%;
+    h1 {
+        font-size: 1rem;
+        text-align: center;
+        width: 100%;
+
+        grid-column: 3
+    }
+
+    h1 + * {
+        grid-column: 5;
+    }
 }
 
 </style>
