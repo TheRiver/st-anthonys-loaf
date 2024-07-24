@@ -3,6 +3,7 @@
  *
  * This file licensed under the
  * Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International license.
+ * See the LICENSE-CC-BY-NC-SA file.
  *
  * Text of the license available: https://creativecommons.org/licenses/by-nc-sa/4.0/
  */

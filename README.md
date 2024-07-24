@@ -25,7 +25,7 @@ pnpm dev --host
   the [LICENSE](LICENSE) file.
 * [emails-store.js][emails] is licensed under 
   [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/nc.svg?ref=chooser-v1" alt=""><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1" alt="">][CCBYSA]. 
-  See the [LICENSE-cc-byncsa file](LICENSE-cc-byncsa).
+  See the [LICENSE-CC-BY-CC-SA file](LICENSE-CC-BY-NC-SA).
 
 
 [emails]: src/emails-store.js
