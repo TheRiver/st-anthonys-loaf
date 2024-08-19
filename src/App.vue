@@ -82,19 +82,15 @@ onBeforeUnmount(() => {
 }
 
 header {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    display: flex;
+    padding-inline: 1rem;
 
     h1 {
         font-size: 1rem;
-        text-align: center;
+        text-align: left;
         width: 100%;
 
-        grid-column: 3
-    }
-
-    h1 + * {
-        grid-column: 5;
+        white-space: nowrap;
     }
 }
 
