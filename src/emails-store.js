@@ -11,6 +11,30 @@
 import {ref} from "vue";
 
 const internal = [
+    //region Burn it down
+    [
+        {
+            from: "Jerome Davis <jeromed@theloaf.com>",
+            to: ["Candice Brown <cbrown@theloaf.com>", "Helen Taylor <htaylor@theloaf.com>"],
+            subject: "Gonna burn it down",
+            content: `*no content*`
+        },
+
+        {
+            from: "Candice Brown <cbrown@theloaf.com>",
+            to: ["Jerome Davis <jeromed@theloaf.com>", "Helen Taylor <htaylor@theloaf.com>"],
+            subject: "Please be there tomorrow",
+            content: `
+Jesus Jerome pick up the fucking phone
+
+CALL ME
+
+Candice Brown <br>
+*“to build a better world, you must first dream of a better world.”*
+        `
+        },
+    ],
+    //endregion
 
     //region Helen email
     [
